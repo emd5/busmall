@@ -1,5 +1,6 @@
 body{
   margin: 0;
+  font-family: 'Poiret One', cursive;
 }
 
 nav{
@@ -24,6 +25,7 @@ li{
 li a{
   display: block;
   color: white;
+  font-size: 30px;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -39,7 +41,7 @@ main{
   margin: auto;
   text-align: center;
   height: 150vh;
-  padding-top: 60px;
+  padding-top: 15vh;
 }
 
 section{
@@ -48,15 +50,20 @@ section{
   height: 40%;
 }
 
+#resultlist li{
+  background-color: rgb(215, 236, 157);
+  padding: 5vh;
+}
+
 img{
   margin-right: 1vh;
   width: 40%;
   height:60%;
-  border: 1px red dashed;
+  border: 2px black double;
 }
 
-
 footer{
+  font-size: 20px;
   position: fixed;
   bottom: 0;
   width: 100%;
