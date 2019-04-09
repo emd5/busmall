@@ -8,7 +8,6 @@ As a reminder, user stories typically take the form of, "As X, I want Y, so that
 
 A wise student would take about 30-45 minutes to work on the user stories and also draft a technical plan for the project (a detailed to-do list of things to make, step by step and tested at each stage) before getting into the code. That time spent in thought and planning will make the code flow a lot faster. Give yourself a series of little problems to solve (rather an a ginormous thing that you just wade through and poke at).
 
-
 ## Marketing Research Team user stories
 
 - [] As a researcher, I want to see a graph of user clicks, so that I can see which products are popular.
@@ -22,7 +21,6 @@ A wise student would take about 30-45 minutes to work on the user stories and al
 - [] As a developer, I want to create a clean UX/UI page, so that users can be able to understand the page.
 - [] As a developer, I want to create an event handler so that handles keeping track of user clicks.
 - [] As a developer, I want to create a function that keeps track of user votes so that I can generate results for the user.
-- [] As a user upon receiving a click, I want to see three new non-duplicating random images so that I do not have to see it again.
 - [] As a developer, I want to keep track of 25 selections made, so that this prevents the user to do additional voting.
 
 ## Focus Group Participant User Stories
@@ -31,3 +29,4 @@ A wise student would take about 30-45 minutes to work on the user stories and al
 - [] As a user, I want to view a clean website, so that I can understand and select images easily.
 - [] As a user, I want to see a set of instructions, so that I know what to do when I am on the page.
 - [] As a user, I want to see my product selections, so that I can be able to keep track on the items clicked.
+- [] As a user upon receiving a click, I want to see three new non-duplicating random images so that I do not have to see it again.
