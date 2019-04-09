@@ -8,6 +8,10 @@ var resultList = document.getElementById('resultlist');
 var productPic = document.getElementById('productpic');
 var productPic2 = document.getElementById('productpic2');
 var productPic3 = document.getElementById('productpic3');
+var votes = [];
+var names = [];
+var chartDrawn = false;
+var imageChart;
 
 // Constructor that creates a new Product Pic object
 function ProductPic(filepath, name){
@@ -106,9 +110,26 @@ function handleImageClick(event){
     productPic.removeEventListener('click', handleImageClick);
     productPic2.removeEventListener('click', handleImageClick);
     productPic3.removeEventListener('click', handleImageClick);
+    
+    updateChartVotes();
+    updateChartNames();
+    drawChart();
 
   }
   showRandomPictures();
+  
+}
+
+function updateChartVotes(){
+  for(let i in allImages){
+    votes.push(allImages[i].votes);
+  }
+}
+
+function updateChartNames(){
+  for(let i in allImages){
+    names.push(allImages[i].name);
+  }
 }
 
 // Eventlistener to handle user clicks
@@ -118,3 +139,37 @@ productPic3.addEventListener('click', handleImageClick);
 
 // Driver to invoke functions
 showRandomPictures();
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++
+// CHART STUFF
+// Charts rendered using Chart JS v.2.8.0
+// http://www.chartjs.org/
+// ++++++++++++++++++++++++++++++++++++++++++++
+
+function drawChart(){
+  var ctx = document.getElementById('canvas').getContext('2d');
+
+  var arrayOfColors = ['lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen'];
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: names, // array of the names, populated above
+      datasets: [{
+        label: 'Votes Per Product',
+        data: votes,
+        backgroundColor: arrayOfColors,
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+}
