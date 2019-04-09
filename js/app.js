@@ -79,6 +79,10 @@ function showRandomPictures(){
 
 // A function to handle the number of clicks the user selects each image
 function handleImageClick(event){
+
+  if(event.target.id === 'imagesection' ){
+    alert('Click on the Image Fool!');
+  }
   console.log('Click: ' + event.target.alt);
 
   voteCounter++;
