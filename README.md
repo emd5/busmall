@@ -6,7 +6,14 @@ BusMall is a market analysis on proposed products to test their potential custom
 
 Liz Mahoney
 
-## Features
+## Changelog
+
+### 4-9-19
+
+- [x] Added functions to render ChartJS.
+- [x] Applied more styling to display the results list.
+
+### 4-8-19
 
 - [x] Create a new repo for this weekly project called bus-mall at the root level of the ~/CF/201 directory.
 - [x] Scaffold the repo with the usual README, CSS, JS, and HTML files, plus a `img/ ` directory.
@@ -18,5 +25,3 @@ Liz Mahoney
 - [x] Upon receiving a click, three new non-duplicating random images need to be automatically displayed. In other words, the three images that are displayed should contain no duplicates, nor should they duplicate with any images that displayed immediately before.
 - [x] Create a constructor function that creates an object associated with each image, and has (at a minimum) properties for the name of the image (to be used for display purposes), its file-path, the number of times it has been shown, and the number of times it has been clicked. Hint: it is useful to create a property that contains a text string to use as an ID in HTML.
 - [x] After 25 selections have been made, turn off the event listeners on the images (to prevent additional voting) and also display a list of the products with votes received with each list item looking like "3 votes for the Banana Slicer".
-
-## Changelog
