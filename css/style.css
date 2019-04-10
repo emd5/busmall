@@ -43,6 +43,12 @@ main{
   padding-top: 15vh;
 }
 
+#intro{
+  width: 60%;
+  margin: auto;
+  padding: 5vh 0vh;
+}
+
 section{
   display: inline-block;
   width: 100%;
@@ -51,7 +57,7 @@ section{
 }
 
 #resultlist{
-  background-color: rgb(215, 236, 157);
+  /* background-color: rgb(215, 236, 157); */
   padding: 10vh 20vh;
 }
 
@@ -76,4 +82,3 @@ footer{
   padding: 5vh;
   text-align: center;
 }
-
