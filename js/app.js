@@ -99,7 +99,6 @@ function handleImageClick(event){
     }
   } else if (voteCounter === 26){
 
-    //TO DO: create function?
     for (let i= 0; i< allImages.length; i++){
       var liEl = document.createElement('li');
       liEl.textContent = `${allImages[i].votes} votes for ${allImages[i].name} out of ${allImages[i].views} views.`;
@@ -140,7 +139,6 @@ productPic3.addEventListener('click', handleImageClick);
 // Driver to invoke functions
 showRandomPictures();
 
-
 // ++++++++++++++++++++++++++++++++++++++++++++
 // CHART STUFF
 // Charts rendered using Chart JS v.2.8.0
@@ -150,16 +148,16 @@ showRandomPictures();
 function drawChart(){
   var ctx = document.getElementById('canvas').getContext('2d');
 
-  var arrayOfColors = ['lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen'];
+  var colorChartArray = ['lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen'];
 
   new Chart(ctx, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: {
       labels: names, // array of the names, populated above
       datasets: [{
-        label: 'Votes Per Product',
+        label: 'Vote Results for Each Product',
         data: votes,
-        backgroundColor: arrayOfColors,
+        backgroundColor: colorChartArray,
       }]
     },
     options: {
