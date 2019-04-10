@@ -150,6 +150,7 @@ function drawChart(){
 
   var colorChartArray = ['lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen'];
 
+  // eslint-disable-next-line no-undef
   new Chart(ctx, {
     type: 'horizontalBar',
     data: {
