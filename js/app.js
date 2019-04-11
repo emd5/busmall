@@ -8,10 +8,9 @@ var resultList = document.getElementById('resultlist');
 var productPic = document.getElementById('productpic');
 var productPic2 = document.getElementById('productpic2');
 var productPic3 = document.getElementById('productpic3');
+var clearStorageEl = document.getElementById('clearstorage');
 var votes = [];
 var names = [];
-var chartDrawn = false;
-var imageChart;
 
 // Constructor that creates a new Product Pic object
 function ProductPic(filepath, name){
@@ -22,31 +21,45 @@ function ProductPic(filepath, name){
   allImages.push(this);
 }
 
-//Instantiate each object
-new ProductPic('bag.jpg', 'bag');
-new ProductPic('banana.jpg', 'banana');
-new ProductPic('bathroom.jpg', 'bathroom');
-new ProductPic('boots.jpg', 'boots');
-new ProductPic('breakfast.jpg', 'breakfast');
-new ProductPic('bubblegum.jpg', 'bubblegum');
-new ProductPic('chair.jpg', 'chair');
-new ProductPic('cthulhu.jpg', 'cthulhu');
-new ProductPic('dog-duck.jpg', 'dog-duck');
-new ProductPic('dragon.jpg', 'dragon');
-new ProductPic('pen.jpg', 'pen');
-new ProductPic('pet-sweep.jpg', 'pet-sweep');
-new ProductPic('scissors.jpg', 'scissors');
-new ProductPic('shark.jpg', 'shark');
-new ProductPic('sweep.jpg', 'sweep');
-new ProductPic('tauntaun.jpg', 'tauntaun');
-new ProductPic('unicorn.jpg', 'unicorn');
-new ProductPic('usb.jpg', 'usb');
-new ProductPic('water-can.jpg', 'water-can');
-new ProductPic('wine-glass.jpg', 'wine-glass');
+function initializeImages(){
+  var checkLocalStorage = JSON.parse(localStorage.getItem('productImages'));
+  
+  if(checkLocalStorage){
+    allImages = checkLocalStorage;
+    console.log('Local storage exist and added');
+  } else{
+    //Instantiate each object
+    new ProductPic('bag.jpg', 'bag');
+    new ProductPic('banana.jpg', 'banana');
+    new ProductPic('bathroom.jpg', 'bathroom');
+    new ProductPic('boots.jpg', 'boots');
+    new ProductPic('breakfast.jpg', 'breakfast');
+    new ProductPic('bubblegum.jpg', 'bubblegum');
+    new ProductPic('chair.jpg', 'chair');
+    new ProductPic('cthulhu.jpg', 'cthulhu');
+    new ProductPic('dog-duck.jpg', 'dog-duck');
+    new ProductPic('dragon.jpg', 'dragon');
+    new ProductPic('pen.jpg', 'pen');
+    new ProductPic('pet-sweep.jpg', 'pet-sweep');
+    new ProductPic('scissors.jpg', 'scissors');
+    new ProductPic('shark.jpg', 'shark');
+    new ProductPic('sweep.jpg', 'sweep');
+    new ProductPic('tauntaun.jpg', 'tauntaun');
+    new ProductPic('unicorn.jpg', 'unicorn');
+    new ProductPic('usb.jpg', 'usb');
+    new ProductPic('water-can.jpg', 'water-can');
+    new ProductPic('wine-glass.jpg', 'wine-glass');
+
+    //this is where we create local storage to store images.
+    localStorage.setItem('productImages', JSON.stringify(allImages));
+    console.log('local storage rendering');
+    console.log(localStorage);
+  }
+}
 
 // A function to randomly display images no immediate duplicates
 function showRandomPictures(){
-
+  
   //Generate 3 random numbers
   var random = Math.floor(Math.random() * allImages.length);
   var random2 = Math.floor(Math.random() * allImages.length);
@@ -84,9 +97,6 @@ function showRandomPictures(){
 // A function to handle the number of clicks the user selects each image
 function handleImageClick(event){
 
-  if(event.target.id === 'imagesection' ){
-    alert('Click on the Image Fool!');
-  }
   console.log('Click: ' + event.target.alt);
 
   voteCounter++;
@@ -116,7 +126,6 @@ function handleImageClick(event){
 
   }
   showRandomPictures();
-  
 }
 
 function updateChartVotes(){
@@ -131,12 +140,20 @@ function updateChartNames(){
   }
 }
 
+function clearStorage(){
+  console.log('clearing storage');
+  return localStorage.clear();
+}
+
 // Eventlistener to handle user clicks
 productPic.addEventListener('click', handleImageClick);
 productPic2.addEventListener('click', handleImageClick);
 productPic3.addEventListener('click', handleImageClick);
+clearStorageEl.addEventListener('click', clearStorage);
+
 
 // Driver to invoke functions
+initializeImages();
 showRandomPictures();
 
 // ++++++++++++++++++++++++++++++++++++++++++++
@@ -146,6 +163,9 @@ showRandomPictures();
 // ++++++++++++++++++++++++++++++++++++++++++++
 
 function drawChart(){
+  
+  localStorage.setItem('productImages', JSON.stringify(allImages));
+
   var ctx = document.getElementById('canvas').getContext('2d');
 
   var colorChartArray = ['lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen', 'lightgreen'];

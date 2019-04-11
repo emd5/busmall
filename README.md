@@ -8,6 +8,11 @@ Liz Mahoney
 
 ## Changelog
 
+### 4-10-19
+
+- [x] Refactor app.js to create and retrieve local storage.
+- [x] More styling on intro div
+
 ### 4-9-19
 
 - [x] Added functions to render ChartJS.
